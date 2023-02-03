@@ -7,4 +7,6 @@ COPY scripts /usr/local/bin/scripts
 
 WORKDIR /usr/local/bin
 
+RUN ["/bin/bash", "-c", "scripts/start.sh"]
+
 ENTRYPOINT [ "scripts/nothing.sh" ]
