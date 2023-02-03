@@ -1,12 +1,10 @@
 #!/bin/bash
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
-
 # set legacy installer's PATH, if it exists
 if [ -e "installer" ]; then export PATH="$(pwd)/installer/bin:$PATH"; fi
 
 # Setup the packages required for the installer
-./bootstrap.sh || exit 1
+scripts/bootstrap.sh || exit 1
 
 # set new installer's PATH, if it downloaded any packages
 if [ -e "installer_files/env" ]; then export PATH="$(pwd)/installer_files/env/bin:$PATH"; fi
