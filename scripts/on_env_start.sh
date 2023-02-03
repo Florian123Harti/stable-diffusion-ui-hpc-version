@@ -9,7 +9,7 @@ if [ -f "scripts/config.sh" ]; then
 fi
 
 if [ "$update_branch" == "" ]; then
-    export update_branch="main"
+    export update_branch="beta"
 fi
 
 if [ -f "scripts/install_status.txt" ] && [ `grep -c sd_ui_git_cloned scripts/install_status.txt` -gt "0" ]; then
@@ -26,7 +26,7 @@ else
     printf "\n\nDownloading Stable Diffusion UI..\n\n"
     printf "Using the $update_branch channel\n\n"
 
-    if git clone -b "$update_branch" https://github.com/cmdr2/stable-diffusion-ui.git sd-ui-files ; then
+    if git clone -b "$update_branch" https://github.com/Florian123Harti/stable-diffusion-ui-hpc-version.git sd-ui-files ; then
         echo sd_ui_git_cloned >> scripts/install_status.txt
     else
         fail "git clone failed"
@@ -41,6 +41,6 @@ cp sd-ui-files/scripts/check_modules.py scripts/
 cp sd-ui-files/scripts/start.sh .
 cp sd-ui-files/scripts/developer_console.sh .
 
-./scripts/on_sd_start.sh
+# ./scripts/on_sd_start.sh
 
-read -p "Press any key to continue"
+# read -p "Press any key to continue"
