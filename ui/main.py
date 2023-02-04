@@ -6,5 +6,6 @@ model_manager.init()
 app.init()
 server.init()
 
+print('End of main.py')
 # start the browser ui
-app.open_browser()
+# app.open_browser()
