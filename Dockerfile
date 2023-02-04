@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 
 RUN apt update
-RUN apt install -y git curl 
+RUN apt install -y git curl nano openssh-client
 
 COPY scripts /usr/local/bin/scripts
 
