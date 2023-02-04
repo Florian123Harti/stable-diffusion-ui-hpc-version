@@ -41,6 +41,6 @@ cp sd-ui-files/scripts/check_modules.py scripts/
 cp sd-ui-files/scripts/start.sh .
 cp sd-ui-files/scripts/developer_console.sh .
 
-# ./scripts/on_sd_start.sh
+./scripts/on_sd_start.sh
 
 # read -p "Press any key to continue"
