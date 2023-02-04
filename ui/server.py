@@ -11,16 +11,19 @@ import socket
 import picklescan.scanner
 import rich
 
-SD_DIR = os.getcwd()
+OUTSIDE_DIR = os.getenv('OUTSIDE_DIR', None)
+print(f"{OUTSIDE_DIR=}")
+
+SD_DIR = OUTSIDE_DIR
 print('started in ', SD_DIR)
 
 SD_UI_DIR = os.getenv('SD_UI_PATH', None)
 sys.path.append(os.path.dirname(SD_UI_DIR))
 
 CONFIG_DIR = os.path.abspath(os.path.join(SD_UI_DIR, '..', 'scripts'))
-MODELS_DIR = os.path.abspath(os.path.join(SD_DIR, '..', 'models'))
+MODELS_DIR = os.path.abspath(os.path.join(SD_DIR, 'models'))
 
-USER_UI_PLUGINS_DIR = os.path.abspath(os.path.join(SD_DIR, '..', 'plugins', 'ui'))
+USER_UI_PLUGINS_DIR = os.path.abspath(os.path.join(SD_DIR, 'plugins', 'ui'))
 CORE_UI_PLUGINS_DIR = os.path.abspath(os.path.join(SD_UI_DIR, 'plugins', 'ui'))
 UI_PLUGINS_SOURCES = ((CORE_UI_PLUGINS_DIR, 'core'), (USER_UI_PLUGINS_DIR, 'user'))
 
@@ -488,13 +491,14 @@ def update_render_threads():
 
 update_render_threads()
 
+print('End of server.py')
 # start the browser ui
-def open_browser():
-    config = getConfig()
-    ui = config.get('ui', {})
-    net = config.get('net', {'listen_port':9000})
-    port = net.get('listen_port', 9000)
-    if ui.get('open_browser_on_start', True):
-        import webbrowser; webbrowser.open(f"http://localhost:{port}")
+# def open_browser():
+#     config = getConfig()
+#     ui = config.get('ui', {})
+#     net = config.get('net', {'listen_port':9000})
+#     port = net.get('listen_port', 9000)
+#     if ui.get('open_browser_on_start', True):
+#         import webbrowser; webbrowser.open(f"http://localhost:{port}")
 
-open_browser()
+# open_browser()

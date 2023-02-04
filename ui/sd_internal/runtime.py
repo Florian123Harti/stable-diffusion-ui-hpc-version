@@ -330,7 +330,8 @@ def load_model_gfpgan():
 
 def load_model_real_esrgan():
     if thread_data.real_esrgan_file is None: raise ValueError(f'Thread real_esrgan_file is undefined.')
-    model_path = thread_data.real_esrgan_file + ".pth"
+    OUTSIDE_DIR = os.getenv('OUTSIDE_DIR', None)
+    model_path = OUTSIDE_DIR + "/" +  thread_data.real_esrgan_file + ".pth"
 
     RealESRGAN_models = {
         'RealESRGAN_x4plus': RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4),
