@@ -10,4 +10,5 @@ WORKDIR /usr/local/bin
 
 RUN ["/bin/bash", "-c", "scripts/start.sh"]
 
+SHELL ["/bin/bash", "-c"]
 ENTRYPOINT [ "scripts/docker-entrypoint.sh" ]
