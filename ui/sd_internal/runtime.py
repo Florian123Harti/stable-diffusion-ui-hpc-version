@@ -324,7 +324,8 @@ def move_to_cpu(model):
 
 def load_model_gfpgan():
     if thread_data.gfpgan_file is None: raise ValueError(f'Thread gfpgan_file is undefined.')
-    model_path = thread_data.gfpgan_file + ".pth"
+    OUTSIDE_DIR = os.getenv('OUTSIDE_DIR', None)
+    model_path = OUTSIDE_DIR + "/" + thread_data.gfpgan_file + ".pth"
     thread_data.model_gfpgan = GFPGANer(device=torch.device(thread_data.device), model_path=model_path, upscale=1, arch='clean', channel_multiplier=2, bg_upsampler=None)
     print('loaded', thread_data.gfpgan_file, 'to', thread_data.model_gfpgan.device, 'precision', thread_data.precision)
 
