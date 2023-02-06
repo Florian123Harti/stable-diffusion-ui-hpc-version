@@ -43,17 +43,13 @@ fi
 if [ -e "src" ]; then mv src src-old; fi
 if [ -e "ldm" ]; then mv ldm ldm-old; fi
 
-mkdir -p "../models/stable-diffusion"
-mkdir -p "../models/gfpgan"
-mkdir -p "../models/realesrgan"
-mkdir -p "../models/vae"
 
 # migrate the legacy models to the correct path (if already downloaded)
-if [ -e "sd-v1-4.ckpt" ]; then mv sd-v1-4.ckpt ../models/stable-diffusion/; fi
-if [ -e "custom-model.ckpt" ]; then mv custom-model.ckpt ../models/stable-diffusion/; fi
-if [ -e "GFPGANv1.3.pth" ]; then mv GFPGANv1.3.pth ../models/gfpgan/; fi
-if [ -e "RealESRGAN_x4plus.pth" ]; then mv RealESRGAN_x4plus.pth ../models/realesrgan/; fi
-if [ -e "RealESRGAN_x4plus_anime_6B.pth" ]; then mv RealESRGAN_x4plus_anime_6B.pth ../models/realesrgan/; fi
+# if [ -e "sd-v1-4.ckpt" ]; then mv sd-v1-4.ckpt ../models/stable-diffusion/; fi
+# if [ -e "custom-model.ckpt" ]; then mv custom-model.ckpt ../models/stable-diffusion/; fi
+# if [ -e "GFPGANv1.3.pth" ]; then mv GFPGANv1.3.pth ../models/gfpgan/; fi
+# if [ -e "RealESRGAN_x4plus.pth" ]; then mv RealESRGAN_x4plus.pth ../models/realesrgan/; fi
+# if [ -e "RealESRGAN_x4plus_anime_6B.pth" ]; then mv RealESRGAN_x4plus_anime_6B.pth ../models/realesrgan/; fi
 
 # install torch and torchvision
 if python ../scripts/check_modules.py torch torchvision; then
