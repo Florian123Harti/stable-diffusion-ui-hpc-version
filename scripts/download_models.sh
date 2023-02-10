@@ -33,13 +33,13 @@ if [ ! -f "models/stable-diffusion/sd-v1-4.ckpt" ]; then
     fi
 fi
 
-if [ ! -f "models/stable-diffusion/sd-v2.ckpt" ]; then
-    echo "Downloading data files (weights) for Stable Diffusion V2.."
+if [ ! -f "models/stable-diffusion/768-v-ema.ckpt" ]; then
+    echo "Downloading data files (weights) for Stable Diffusion 2.."
 
-    curl -L -k https://huggingface.co/stabilityai/stable-diffusion-2/resolve/main/768-v-ema.ckpt > models/stable-diffusion/sd-v2.ckpt
+    curl -L -k https://huggingface.co/stabilityai/stable-diffusion-2/resolve/main/768-v-ema.ckpt > models/stable-diffusion/768-v-ema.ckpt
 
-    if [ ! -f "models/stable-diffusion/sd-v2.ckpt" ]; then
-        fail "Error downloading the data files (weights) for Stable Diffusion"
+    if [ ! -f "models/stable-diffusion/768-v-ema.ckpt" ]; then
+        fail "Error downloading the data files (weights) for Stable Diffusion 2"
     fi
 fi
 
