@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ "$OUTSIDE_DIR" == "" ]; then
+    echo "Please define 'OUTSIDE_DIR' variable"
+    exit 1 
+fi
+
 SD_PATH=`pwd`
 if [ -e "installer_files/env" ]; then
     export INSTALL_ENV_DIR="$(pwd)/installer_files/env"
