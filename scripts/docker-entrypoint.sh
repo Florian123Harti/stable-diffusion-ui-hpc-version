@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ "$OUTSIDE_DIR" == "" ]; then
+    echo "Please define 'OUTSIDE_DIR' variable"
+    exit 1 
+fi
+
 echo "$(pwd)"
 
 export PATH="$(pwd)/installer_files/env/bin:$PATH";
