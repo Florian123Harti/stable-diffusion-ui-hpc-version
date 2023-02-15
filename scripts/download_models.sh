@@ -4,6 +4,8 @@ source ./scripts/functions.sh
 
 mkdir -p "models/stable-diffusion"
 mkdir -p "models/vae"
+mkdir -p "models/gfpgan"
+mkdir -p "models/realesrgan"
 mkdir -p "models/hypernetwork"
 echo "" > "models/stable-diffusion/Put your custom ckpt files here.txt"
 echo "" > "models/vae/Put your VAE files here.txt"
