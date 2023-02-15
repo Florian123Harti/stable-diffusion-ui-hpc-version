@@ -2,10 +2,13 @@
 
 source ./scripts/functions.sh
 
-mkdir -p "../models/stable-diffusion"
-mkdir -p "../models/gfpgan"
-mkdir -p "../models/realesrgan"
-mkdir -p "../models/vae"
+mkdir -p "models/stable-diffusion"
+mkdir -p "models/vae"
+mkdir -p "models/hypernetwork"
+echo "" > "models/stable-diffusion/Put your custom ckpt files here.txt"
+echo "" > "models/vae/Put your VAE files here.txt"
+echo "" > "models/hypernetwork/Put your hypernetwork files here.txt"
+
 
 if [ -f "models/stable-diffusion/sd-v1-4.ckpt" ]; then
     model_size=`find "models/stable-diffusion/sd-v1-4.ckpt" -printf "%s"`
